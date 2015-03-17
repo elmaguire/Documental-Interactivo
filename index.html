@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/estilos.css" type="text/css">
+    <link rel="stylesheet" href="css/particulares.css" type="text/css">
+    <script src="js/librerias/handlebars-v2.0.0-min.js"></script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&appId=1489130994637897&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="interactivo"></div>
+    <script id="contenedor-Template" type="text/x-handlebars-template">
+      <div id="contenedor">
+      
+      	<section id="home" style="background-image:url({{home.bg}});" data-destino="home" data-audio="{{home.audio}}" class="js-home">
+      		<article class="contenido">
+      			<div class="descripcion"><span class="int-cancel js-cerrar-descrip"></span>
+      				<div class="textos arriba">
+      					<h1>{{titulo}}</h1>
+      					{{{intro}}}
+      				</div>
+      			</div>
+      		</article>
+      		<div class="entrar js-entrar">
+      			<button data-ir="inicio" class="js-idioma js-nav">Entrar<span class="int-arrow-right-thick"></span></button>
+      			<a href="eng.html">English</a>
+      		</div>
+      		<div class="reproductor reprod_home">
+      			<button data-estado="play" class="js-reproducir_home">
+      				<div class="flip-container js-flip-play">
+      					<div class="flipper">
+      						<div class="front"><span class="int-pause-circle-fill"></span></div>
+      						<div class="back"><span class="int-play-circle-fill"></span></div>
+      					</div>
+      				</div>
+      			</button>
+      			<button data-volumen="suena" class="js-volumen_home"><span class="js-texto texto js-text-volumen">Silencio</span>
+      				<div class="flip-container js-flip-volumen">
+      					<div class="flipper">
+      						<div class="front"><span class="int-volume-off"></span></div>
+      						<div class="back"><span class="int-volume-up"></span></div>
+      					</div>
+      				</div>
+      			</button>
+      		</div>
+      	</section>
+      
+      	<section id="inicio" data-destino="inicio" data-titulo="Inicio">
+      		<div class="contenido js-entrada">
+      			{{#each secciones}}
+      				<article style="background-image:url({{this.background}});" class="entrada_seccion">
+      					<button data-ir="{{this.seccion}}" class="js-nav">
+      						<h3>{{this.titulo}}</h3>
+      					</button>
+      				</article>
+      			{{/each}}
+      			<h2>{{titulo}}</h2>
+      		</div>
+      		<div class="reproductor reprod_home">
+      			<button data-estado="play" class="js-reproducir_home">
+      				<div class="flip-container js-flip-play">
+      					<div class="flipper">
+      						<div class="front"><span class="int-pause-circle-fill"></span></div>
+      						<div class="back"><span class="int-play-circle-fill"></span></div>
+      					</div>
+      				</div>
+      			</button>
+      			<button data-volumen="suena" class="js-volumen_home"><span class="js-texto texto js-text-volumen">Silencio</span>
+      				<div class="flip-container js-flip-volumen">
+      					<div class="flipper">
+      						<div class="front"><span class="int-volume-off"></span></div>
+      						<div class="back"><span class="int-volume-up"></span></div>
+      					</div>
+      				</div>
+      			</button>
+      		</div>
+      	</section>
+      
+      	{{#each secciones}}
+      	<section data-seccion="{{this.seccion}}" data-titulo="{{this.titulo}}" data-destino="{{this.seccion}}" data-audio="{{this.audio}}" class="seccion-principal js-seccion">
+      		<div data-visible="1" class="contenedor js-contenedor">
+      			{{#each this.diapositivas}}
+      			<article style="background-image:url({{this.bg}});" data-diapositiva="{{this.id}}" class="contenido diapositiva js-diapositiva">
+      				{{#if this.descrip}}
+      				<div class="descripcion"><span class="int-cancel js-cerrar-descrip"></span>
+      					<div class="textos {{this.altura}}">
+      						{{{this.descrip}}}
+      					</div>
+      				</div>
+      				{{/if}}
+      				{{#if this.mapa}}
+      					{{{this.mapa}}}
+      				{{/if}}
+      			</article>
+      			{{/each}}
+      		</div>
+      		<div class="sensible izq js-sensible_izq int-arrow-right-thick"></div>
+      		<div class="sensible der js-sensible_der int-arrow-right-thick"></div>
+      		<div class="reproductor">
+      			<button data-estado="pausa" class="js-reproducir">
+      				<div class="flip-container">
+      					<div class="flipper">
+      						<div class="front"><span class="int-play-circle-fill"></span></div>
+      						<div class="back"><span class="int-pause-circle-fill"></span></div>
+      					</div>
+      				</div>
+      			</button>
+      			<input type="range" min="0" max="100" value="0" step="0.1" class="js-rango">
+      			<button data-volumen="suena" class="js-volumen"><span class="js-texto texto">Silencio</span>
+      				<div class="flip-container">
+      					<div class="flipper">
+      						<div class="front"><span class="int-volume-off"></span></div>
+      						<div class="back"><span class="int-volume-up"></span></div>
+      					</div>
+      				</div>
+      			</button>
+      			<div class="paginador js-paginador">
+      				<p><span class="js-paginador-actual">1</span>/<span class="js-paginador-total"></span></p>
+      			</div>
+      		</div>
+      	</section>
+      	{{/each}}
+      	
+      	{{#each paginas}}
+      	<section data-pagina="" data-destino="{{this.pagina}}" data-titulo="{{this.titulo}}" style="background-image:url({{this.background}});" class="pagina">
+      		{{#if this.redes}}
+      		<article class="salida">
+      		{{else}}
+      		<article>
+      		{{/if}}
+      			<div class="descripcion">
+      				<h2>{{this.titulo}}</h2>
+      				{{{this.descripcion}}}
+      			</div>
+      			{{#if this.redes}}
+      			<div class="redes"><span>Compartir:</span>
+      				<ul>
+      					<li><a class="js-fb_popup" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]={{titulo}}&amp;p[summary]={{descripcion}}.&amp;p[url]={{url}}&amp;p[images][0]=http://santosdiableros.mx/assets/imgs/inicio/INTRO1.jpg"><span class="int-facebook"></span></a></li>
+      					<li><a class="js-twitter_popup" href="http://twitter.com/share?text={{titulo}}"><span class="int-twitter"></span></a></li>
+      					<li><a class="js-gplus_popup" href="https://plus.google.com/share?url={{url}}"><span class="int-googleplus"></span></a></li>
+      				</ul>
+      			</div>
+      			{{/if}}
+      		</article>
+      	</section>
+      	{{/each}}
+      
+      </div>
+      <!-- Navegación -->
+      <div id="navegacion" class="js-navegacion">
+      	<button class="btn-menu x js-btn-menu">
+      		<div class="navicon"></div>
+      	</button>
+      	<div id="menu" class="js-menu">
+      		<h4>{{titulo}}</h4>
+      		<nav role="navigation" class="menu">
+      			<ul>
+      				<li data-seccion="inicio" class="inicio">
+      					<button data-ir="inicio" class="js-nav">Inicio</button>
+      				</li>
+      				{{#each secciones}}
+      					<li data-seccion='{{this.seccion}}'><button data-ir='{{this.seccion}}' class='js-nav seccion'>{{this.titulo}}</button></li>
+      				{{/each}}
+      				{{#each paginas}}
+      					<li data-seccion="{{this.pagina}}" class="paginas"><button data-ir="{{this.pagina}}" class="js-nav seccion">{{this.titulo}}</button></li>
+      				{{/each}}
+      			</ul>
+      		</nav>
+      		<div class="idiomas">
+      			<a href="eng.html">English</a>
+      		</div>
+      		<div class="redes"><span class="compartir">Compartir:</span>
+      			<ul>
+      				<li><a class="js-fb_popup" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]={{titulo}}&amp;p[summary]={{descripcion}}.&amp;p[url]={{url}}&amp;p[images][0]=http://santosdiableros.mx/assets/imgs/inicio/INTRO1.jpg"><span class="int-facebook"></span></a></li>
+      				<li><a class="js-twitter_popup" href="http://twitter.com/share?text={{titulo}}"><span class="int-twitter"></span></a></li>
+      				<li><a class="js-gplus_popup" href="https://plus.google.com/share?url={{url}}"><span class="int-googleplus"></span></a></li>
+      			</ul>
+      		</div>
+      	</div>
+      </div><!--fin navegación -->
+      
+      <!-- Footer -->
+      <footer>
+      	<div class="seccion js-seccion-footer">
+      		<p>&nbsp;</p>
+      	</div>
+      	<div class="titulo js-titulo-footer">
+      		<button data-hover="Fullscreen" class="js-fullScreen">Fullscreen</button>
+      		<button data-ir="home" data-hover="{{titulo}}" class="js-nav">{{titulo}}</button>
+      		<figure><img src="assets/imgs/logo_footer.png"></figure>
+      	</div>
+      </footer><!--fin footer -->
+      
+    </script>
+    <script src="contenidos.js"></script>
+    <script src="js/funciones-min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+var menuSource=document.getElementById("contenedor-Template").innerHTML,menuTemplate=Handlebars.compile(menuSource);document.getElementById("interactivo").innerHTML=menuTemplate(contenidoInteractivo);

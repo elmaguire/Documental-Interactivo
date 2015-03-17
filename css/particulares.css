@@ -1,0 +1,84 @@
+/* Estilos personalizadas del interactivo */
+
+/*
+Editar las fuentes de acuerdo al diseño del documental.
+Las fuentes deben ir en la carpeta de assets/fuentes/
+*/
+@font-face {
+	font-family: 'bahianaregular';
+	src: url('../assets/fuentes/bahiana-regular-webfont.eot');
+	src: url('../assets/fuentes/bahiana-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../assets/fuentes/bahiana-regular-webfont.woff2') format('woff2'),
+		url('../assets/fuentes/bahiana-regular-webfont.woff') format('woff'),
+		url('../assets/fuentes/bahiana-regular-webfont.ttf') format('truetype'),
+		url('../assets/fuentes/bahiana-regular-webfont.svg#bahianaregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'overlockbold';
+	src: url('../assets/fuentes/overlock-bold-webfont.eot');
+	src: url('../assets/fuentes/overlock-bold-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../assets/fuentes/overlock-bold-webfont.woff2') format('woff2'),
+		url('../assets/fuentes/overlock-bold-webfont.woff') format('woff'),
+		url('../assets/fuentes/overlock-bold-webfont.ttf') format('truetype'),
+		url('../assets/fuentes/overlock-bold-webfont.svg#overlockbold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'overlockregular';
+	src: url('../assets/fuentes/overlock-regular-webfont.eot');
+	src: url('../assets/fuentes/overlock-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../assets/fuentes/overlock-regular-webfont.woff2') format('woff2'),
+		url('../assets/fuentes/overlock-regular-webfont.woff') format('woff'),
+		url('../assets/fuentes/overlock-regular-webfont.ttf') format('truetype'),
+		url('../assets/fuentes/overlock-regular-webfont.svg#overlockregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+a
+{
+	color: #B638B1;
+}
+
+body {
+	color: #000; /* personalizar */
+}
+body,
+button
+{
+	font: 16px overlockregular; /* personalizar */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5
+{
+	font-family: bahianaregular; /* personalizar */
+}
+
+footer button,
+footer p
+{
+	font: 1.7rem bahianaregular; /* personalizar */
+}
+
+#home .entrar a,
+#home .entrar button
+{
+	font: 1.7rem bahianaregular; /* personalizar */
+}
+
+.salida
+{
+	font: 2rem bahianaregular; /* personalizar */
+}
+
+/* Personalizar a partir de aquí */
+
+#interactivo {
+}

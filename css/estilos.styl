@@ -1,0 +1,1098 @@
+@css {
+	/*
+		Description: Hoja de estilos de la página de [ Incluir nombre del documental ]
+		Version: 1.0
+		*/
+}
+
+/* <---------- Funciones Stylus ----------> */
+sombra() // rgba(0,0,0,0.5) 0 5px 10px
+	box-shadow: arguments
+	-webkit-box-shadow: arguments
+
+sombrat()
+	text-shadow: arguments
+	-moz-text-shadow: arguments
+	-webkit-text-shadow: arguments
+	-o-text-shadow: arguments
+
+rotar()
+	-webkit-transform: rotate(arguments);
+	-moz-transform: rotate(arguments);
+	-ms-transform: rotate(arguments);
+	-o-transform: rotate(arguments);
+	transform: rotate(arguments);
+
+absolute()
+	position absolute
+
+block()
+	display block
+
+hide()
+	display none
+
+relative()
+	position relative
+
+
+// colores
+casiblanco = #F2F2F2
+grisMedio = #808080
+elColor = #B638B1
+
+// duración hamburguesa
+duration=.3s;
+
+// Fuente íconos de interfaz
+
+@font-face
+	font-family: 'interactivo';
+	src:url('fuentes/interactivo.eot?d901pp');
+	src:url('fuentes/interactivo.eot?#iefixd901pp') format('embedded-opentype'), url('fuentes/interactivo.woff?d901pp') format('woff'), url('fuentes/interactivo.ttf?d901pp') format('truetype'), url('fuentes/interactivo.svg?d901pp#interactivo') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+/* <---------- Secciones semánticas ----------> */
+
+*
+	box-sizing: border-box;
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, figure
+	border 0
+	font-family inherit
+	font-size 100%
+	font-style inherit
+	font-weight inherit
+	margin 0
+	outline 0
+	padding 0
+	vertical-align top
+:focus
+	outline 0
+
+::-moz-selection
+	background #fe57a1
+	color #fff
+	text-shadow none
+
+::selection
+	background #fe57a1
+	color #fff
+	text-shadow none
+
+a 
+	text-decoration none
+	img
+		border 0
+	&:focus, &:active, &:hover
+		text-decoration underline
+
+article,
+section
+	height 100%
+	relative()
+
+blockquote, q
+	quotes "" ""
+	&:before, &:after
+		content ""
+
+body
+	bg casiblanco
+	inter 1.2em
+	width 100%
+
+button
+	border none
+	background none
+	cursor pointer !important
+
+caption, th, td
+	font-weight normal
+	text-align left
+
+em
+	italic()
+
+fieldset
+	border none
+
+footer
+	bg negro
+	bottom 0
+	height 40px
+	fixed()
+	width 100%
+	button
+		color rgba(242,242,242,0.5)
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		&::before 
+			color: rgba(242,242,242,0.6)
+			content: attr(data-hover);
+			position: absolute;
+			-webkit-transition: all 0.3s ease;
+			-moz-transition: all 0.3s ease;
+			transition: all 0.3s ease;
+			-webkit-transform: scale(0.8);
+			-moz-transform: scale(0.8);
+			transform: scale(0.8);
+			opacidad 0
+		&:hover,
+		&:focus
+			color rgba(242,242,242,0)
+			&::before
+				-webkit-transform: scale(1);
+				-moz-transform: scale(1);
+				transform: scale(1);
+				opacity: 1;
+	figure
+		alineados baseline
+		img
+			max-height 1.5rem
+			width auto
+	p
+		color casiblanco
+	.seccion,
+	.titulo
+		absolute()
+		top 50%
+	.seccion
+		left 2%
+		transform translate(0, -50%)
+		-ms-transform: translate(0, -50%)
+		-webkit-transform translate(0, -50%)
+	.titulo
+		right 2%
+		transform translate(0, -50%)
+		-ms-transform: translate(0, -50%)
+		-webkit-transform translate(0, -50%)
+
+// h1, h2
+
+h1
+	fsize 5.5rem
+	inter 1em
+	margin-bottom 0.2em
+
+h2
+	fsize 4.75rem
+
+h3
+	fsize 4rem
+
+h4
+	fsize 1.875rem
+// header
+
+
+html
+	overflow hidden
+	font-size 100%
+	-webkit-text-size-adjust 100%
+	-ms-text-size-adjust 100%
+
+// nav
+// 	a
+// 		&:hover
+			
+// 	li
+// 		&:last-child
+
+// 	.activo
+		
+ol, ul
+	list-style none
+
+strong
+	bold()
+
+svg:not(:root)
+	overflow: hidden;
+
+table
+	border-collapse separate
+	border-spacing 0
+
+[class^="int-"],
+[class*=" int-"]
+	font-family: 'interactivo';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+/* <---------- ID's ----------> */
+
+#contenedor,
+.contenedor
+	absolute()
+	block()
+	height 100%
+	left 0
+	& > *
+		float left
+		height 100%
+
+#interactivo
+	block()
+	height unquote(' calc( 100% - 40px ) ')
+	// overflow hidden
+	position fixed
+	width 100%
+	*zoom: 1
+
+#home,
+#salida,
+.diapositiva,
+.entrada_seccion,
+.pagina
+	background no-repeat center center
+	background-size cover
+
+#home
+	.entrar
+		absolute()
+		right 0
+		top 50%
+		transform translate(0, -50%)
+		-ms-transform: translate(0, -50%)
+		-webkit-transform translate(0, -50%)
+		z-index 5
+		a,
+		button
+			block()
+			bg casiblanco
+			-webkit-border-top-left-radius: 2rem;
+			-webkit-border-bottom-left-radius: 2rem;
+			-moz-border-radius-topleft: 2rem;
+			-moz-border-radius-bottomleft: 2rem;
+			border-top-left-radius: 2rem;
+			border-bottom-left-radius: 2rem;
+			color negro
+			cursor: pointer;
+			margin 1rem 0
+			overflow hidden
+			padding 1.2rem 1.8rem
+			text-decoration none
+			-webkit-transform: translateZ(0);
+			transform: translateZ(0);
+			-webkit-transition: all 0.2s;
+			transition: all 0.2s;
+			&:hover,
+			&:focus,
+			&:active
+				-webkit-animation: pop 0.3s ease 1;
+				animation: pop 0.3s ease 1;
+				color blanco
+			&:after
+				background: elColor;
+				-webkit-border-top-left-radius: 2rem;
+				-webkit-border-bottom-left-radius: 2rem;
+				-moz-border-radius-topleft: 2rem;
+				-moz-border-radius-bottomleft: 2rem;
+				border-top-left-radius: 2rem;
+				border-bottom-left-radius: 2rem;
+				content: '';
+				height: 101%;
+				left: 0;
+				opacity: 0;
+				position: absolute;
+				top: 50%;
+				width: 0;
+				z-index: -1;
+				-webkit-transition: all 0.2s;
+				transition: all 0.2s;
+				-webkit-transform: translateX(0%) translateY(-50%);
+				-ms-transform: translateX(0%) translateY(-50%);
+				transform: translateX(0%) translateY(-50%);
+			&:hover:after,
+			&:focus:after
+				width: 95%;
+				opacity: 1;
+			&:active:after
+				width: 120%;
+				opacity: 1;
+			span
+				font-size 1.4em
+				padding-left 2em
+	.descripcion.oculto
+		background none
+		h1
+			color negro
+		h3,
+		p
+			opacidad 0
+		.int-cancel
+			rotar(135deg);
+	.textos
+		&.arriba
+			top 12% !important
+	.int-cancel
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		font-size 2rem
+		cursor pointer
+		sombrat rgba(0,0,0,1) 0px 0px 5px
+		block()
+		width 1em
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0);
+		-webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		transition: all 0.2s;
+		&:hover,
+		&:focus,
+		&:active
+			-webkit-animation: pop_giro 0.3s ease 1;
+			animation: pop_giro 0.3s ease 1;
+
+#inicio
+	.contenido
+		h2,
+		.entrada_seccion
+			absolute()
+			block()
+		h2
+			block()
+			bg casiblanco
+			left 0
+			height 5rem
+			inter 1em
+			overflow hidden
+			top 50%
+			width 100%
+			talign center
+			transform translate(0, -50%)
+			-ms-transform: translate(0, -50%)
+			-webkit-transform translate(0, -50%)
+		.entrada_seccion
+			height unquote(' calc( 50% - 2.5rem ) ') !important
+			overflow hidden
+			width 50%
+			button
+				block()
+				height 110%
+				padding 0
+				position relative
+				width 110%
+				z-index 14
+			h3,
+			&:after
+				-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				transition: all 0.3s ease;
+			h3
+				relative()
+				opacity 0
+				color casiblanco
+				left 50%
+				top 0
+				talign center
+				z-index 2
+				line-height: 0;
+				transform translate(-50%, -50%)
+				-ms-transform: translate(-50%, -50%)
+				-webkit-transform translate(-50%, -50%)
+			&:after
+				absolute()
+				background rgba(0,0,0,0.75);
+				content ''
+				height 110%
+				opacidad 0
+				top 50%
+				left 50%
+				transform translate(-50%, -50%)
+				-ms-transform: translate(-50%, -50%)
+				-webkit-transform translate(-50%, -50%)
+				width 110%
+				z-index 1
+				-webkit-transition: all 0.2s;
+				-moz-transition: all 0.2s;
+				transition: all 0.2s;
+			&:hover,
+			&:focus,
+			&:active
+				h3,
+				&:after
+					opacidad 1
+			&:active
+				&:after
+					height: 85%;
+			&:nth-child(1)
+				left 0
+				top 0
+			&:nth-child(2)
+				right 0
+				top 0
+			&:nth-child(3)
+				left 0
+				bottom 0
+			&:nth-child(4)
+				right 0
+				bottom 0
+
+#menu
+	bg casiblanco
+	block()
+	height 100%
+	width 315px
+	absolute()
+	top 0
+	&.visible
+		sombra rgba(0,0,0,1) 0px 0px 15px
+		z-index 30
+	button
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0);
+		-webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		transition: all 0.2s;
+		&:hover,
+		&:focus,
+		&:active
+			-webkit-animation: pop 0.3s ease 1;
+			animation: pop 0.3s ease 1;
+		&:after
+			background: #bcbcbc;
+			content: '';
+			height: 101%;
+			left: 0;
+			opacity: 0;
+			position: absolute;
+			top: 50%;
+			width: 0;
+			z-index: -1;
+			-webkit-transition: all 0.2s;
+			-moz-transition: all 0.2s;
+			transition: all 0.2s;
+			-webkit-transform: translateX(0%) translateY(-50%);
+			-moz-transform: translateX(0%) translateY(-50%);
+			-ms-transform: translateX(0%) translateY(-50%);
+			transform: translateX(0%) translateY(-50%);
+		&:hover:after,
+		&:focus:after
+			width: 100%;
+			opacity: 1;
+		&:active:after
+			width: 120%;
+			opacity: 1;
+	h4
+		talign center
+		margin 0.3em 0 0.7em
+	.idiomas
+		a
+			border-bottom 1px solid #CCCCCC
+			border-top 1px solid #CCCCCC
+			font-weight bold
+			block()
+			font-size 1.125rem
+			padding 0.3em 0 0.3em 1.5rem
+			width 100%
+			talign left
+		.actual
+			hide()
+	.menu
+		border-top 2px solid grisMedio
+		button,
+		span
+			block()
+			padding 0.3em 0 0.3em 1.5rem
+			width 100%
+			talign left
+		button
+			font-size 1.125rem
+		li
+			border-bottom 1px solid #CCCCCC
+			&:last-child
+				border-bottom none
+			&.actual
+				border-left 5px solid elColor
+				bg #E6E6E6
+				padding-left 0
+				button
+					padding-left unquote(' calc( 1.5rem - 5px ) ');
+					border-top 1px solid #CCCCCC
+				.seccion
+					font-weight bold
+			&.inicio
+				border-bottom 5px solid #CCCCCC
+			&.paginas
+				border-top 5px solid #CCCCCC
+		span
+			color grisMedio
+			font-size 1rem
+	.redes
+		absolute()
+		bottom 0.5rem
+		left 0
+		li,
+		ul,
+		span
+			alineados top
+		li
+			margin-left 0.5rem
+			a
+				color negro
+				font-size 1.5rem
+		.compartir
+			font-size 1.125rem
+			margin-right 0.5rem
+			padding 0.3em 0 0.3em 1.5rem
+
+#navegacion
+	absolute()
+	height 100%
+	hide()
+	right -315px
+	top 0
+	width 315px
+	z-index 101
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	&.visible
+		right 0
+
+#subtitulos
+	absolute()
+	block()
+	background rgba(0,0,0,0.4)
+	bottom 0
+	height auto
+	left 0
+	width 100%
+	z-index 101
+	& + .reproductor
+		bottom 5rem
+	button
+		color casiblanco
+		cursor pointer
+		font-size 1.2rem
+		margin-left 2%
+		sombrat rgba(0,0,0,1) 0px 0px 5px
+		width 100%
+		block()
+		talign left
+	.subtitulos
+		hide()
+		height 3rem
+		overflow auto
+		padding 0 2.5%
+		p
+			font-size 1rem
+			color casiblanco
+			margin-bottom 0.5em
+	&.activo
+		background rgba(0,0,0,0.8)
+		.subtitulos
+			block()
+
+/* <---------- Classes ----------> */
+
+.alto_total
+	height: 100vh
+
+// .contenedor
+// 	transition: all 0.25s ease;
+
+.descripcion
+	background: -moz-linear-gradient(left,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.8)), color-stop(100%,rgba(0,0,0,0)));
+	background: -webkit-linear-gradient(left,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(left,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(left,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(to right,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	filter unquote(' progid:DXImageTransform.Microsoft.gradient( startColorstr="#e6000000", endColorstr="#00000000",GradientType=1 ) ')
+	block()
+	color blanco
+	height 100%
+	left 0
+	max-width 550px
+	padding 2rem
+	position absolute
+	width 50%
+	z-index 2
+	p
+		fsize 1.500rem
+		margin-bottom 1em
+	.textos
+		&.abajo,
+		&.arriba,
+		&.enmedio
+			position absolute
+		&.abajo
+			bottom 10%
+		&.arriba
+			top 5%
+		&.enmedio
+			margin-left 3rem
+			top 50%
+			transform translate(0, -50%)
+			-ms-transform: translate(0, -50%)
+			-webkit-transform translate(0, -50%)
+		.int-cancel
+			display inline-block !important
+			font-size 0.9em !important
+			vertical-align top
+
+.eng
+	.textos
+		&.abajo
+			bottom 20%
+		&.arriba
+			top 5%
+		&.enmedio
+			margin-left 3rem
+			top 50%
+			transform translate(0, -50%)
+			-ms-transform: translate(0, -50%)
+			-webkit-transform translate(0, -50%)
+
+// icomoons
+
+.int-pause-circle-fill:before
+	content: "\e602";
+.int-play-circle-fill:before
+	content: "\e603";
+.int-volume-off:before
+	content: "\e604";
+.int-volume-up:before
+	content: "\e605";
+.int-cancel:before
+	content: "\e606";
+.int-unfold-less:before
+	content: "\e607";
+.int-arrow-right-thick:before
+	content: "\e608";
+.int-googleplus:before
+	content: "\e609";
+.int-facebook:before
+	content: "\e600";
+.int-twitter:before
+	content: "\e601";
+
+// Hamburguesa a cerrar
+.btn-menu
+	bg casiblanco
+	-webkit-border-top-left-radius: 2rem;
+	-webkit-border-bottom-left-radius: 2rem;
+	-moz-border-radius-topleft: 2rem;
+	-moz-border-radius-bottomleft: 2rem;
+	border-top-left-radius: 2rem;
+	border-bottom-left-radius: 2rem;
+	absolute()
+	cursor: pointer;
+	block()
+	padding: 1.6rem 1.4rem;
+	position: relative;
+	-webkit-transition: all duration ease;
+	transition: all duration ease;
+	user-select: none;
+	left 0
+	top 50%
+	z-index 21
+	transform translate(-100%, -50%)
+	-ms-transform: translate(-100%, -50%)
+	-webkit-transform translate(-100%, -50%)
+	&.internas
+		top 2%
+		transform translate(-100%, 0)
+		-ms-transform: translate(-100%, 0)
+		-webkit-transform translate(-100%, 0)
+	.navicon:before,
+	.navicon:after
+		-webkit-transition: duration;
+		transition: duration;
+	&:hover
+		-webkit-transition: duration;
+		transition: duration;
+		.navicon
+			bg rgba(0,0,0,0.7)
+			&:before,
+			&:after
+				bg rgba(0,0,0,0.7)
+				-webkit-transition: duration;
+				transition: duration;
+			&:before
+				top: .73rem;
+			&:after
+				top: -.73rem;
+
+.navicon
+	background: negro;
+	border-radius: 2.5rem;
+	height: .38rem;
+	position: relative;
+	-webkit-transition: duration;
+	transition: duration;
+	width: 2em;
+	&:before,
+	&:after
+		background: negro;
+		border-radius: 1rem;
+		content: "";
+		display: block;
+		height: .38rem;
+		position: absolute;
+		-webkit-transition: duration duration;
+		transition: duration duration;
+		width: 2rem;
+		z-index: -1;
+	&:before
+		top: .625rem;
+	&:after
+		top: -.625rem;
+
+.open:not(.steps) .navicon:before,
+.open:not(.steps) .navicon:after
+	top: 0 !important;
+
+.open .navicon:before,
+.open .navicon:after
+	-webkit-transition: duration;
+	transition: duration;
+
+.open.x
+	sombra rgba(0,0,0,0.6) 0px 0px 9px
+	.navicon
+		background: transparent;
+		&:before
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		&:after
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+
+.reproductor
+	absolute()
+	bottom 1rem
+	z-index 100
+	&:not(.reprod_home)
+		talign center
+		width 100%
+	&.reprod_home
+		talign right
+		width 98%
+	button
+		&:hover,
+		&:focus,
+		&:active
+			-webkit-animation: pop 0.3s ease 1;
+			animation: pop 0.3s ease 1;
+	input[type="range"]
+		width unquote(' calc( 100% - 18rem ) ')
+	span
+		alineados middle
+		color casiblanco
+		sombrat rgba(0,0,0,1) 0px 0px 5px
+		&:not(.texto)
+			font-size 1.8rem
+		&.texto
+			font-size 1.1rem
+	.paginador
+		alineados middle
+		color casiblanco
+		margin-left 1rem
+		sombrat rgba(0,0,0,1) 0px 0px 5px
+		span
+			font-size 1.1rem
+
+.salida
+	talign center
+	width 100%
+	.descripcion,
+	.redes
+		block()
+		width 100%
+		relative()
+		max-width: 100%;
+		background: none;
+	.descripcion
+		height 90%
+		h2,
+		button
+			color negro
+	.redes
+		color casiblanco
+		a
+			color casiblanco
+		li,
+		span,
+		ul
+			alineados middle
+		li
+			margin-left 0.5rem
+			span
+				font-size 1.6rem
+		ul
+			margin-right 0.5rem
+
+.seccion-principal
+	block()
+	height unquote(' calc( 100% - 40px ) ')
+	overflow hidden
+	width 100%
+	*zoom: 1
+	.sensible
+		// bg rgba(0,0,0,0.1)
+		absolute()
+		height 75%
+		top 12%
+		width 10%
+		z-index 22
+		&:hover
+			cursor pointer
+			&:before
+				color rgba(255,255,255,0.5)
+				sombrat rgba(0,0,0,0.5) 0px 0px 4px
+		&:before
+			absolute()
+			color rgba(255,255,255,0.2)
+			font-size 3.5rem
+			left 60%;
+			top 50%;
+			transform translate(-50%, -50%)
+			-ms-transform: translate(-50%, -50%)
+			-webkit-transform translate(-50%, -50%)
+		&.izq
+			left 0
+			rotar(180deg)
+		&.der
+			right 0
+	.diapositiva
+		block()
+		relative()
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		&.anterior
+			-webkit-transform translateX(10%)
+			transform translateX(10%)
+			z-index 20
+		&.siguiente
+			-webkit-transform translateX(-10%)
+			transform translateX(-10%)
+			z-index 20
+	.descripcion
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		h3,
+		p,
+		.int-cancel
+			-webkit-transition: all 0.3s ease;
+			-moz-transition: all 0.3s ease;
+			transition: all 0.3s ease;
+		.int-cancel
+			font-size 2rem
+			cursor pointer
+			sombrat rgba(0,0,0,1) 0px 0px 5px
+			block()
+			width 1em
+			-webkit-transform: translateZ(0);
+			transform: translateZ(0);
+			-webkit-transition: all 0.2s;
+			-moz-transition: all 0.2s;
+			transition: all 0.2s;
+			&:hover,
+			&:focus,
+			&:active
+				-webkit-animation: pop_giro 0.3s ease 1;
+				animation: pop_giro 0.3s ease 1;
+		.textos.arriba
+			margin-top 3.5rem
+		&.oculto
+			background none
+			h3,
+			p
+				opacidad 0
+			.int-cancel
+				rotar(135deg);
+
+input[type=range]
+	-webkit-appearance: none;
+
+input[type=range]::-webkit-slider-thumb
+	-webkit-appearance: none;
+
+input[type=range]:focus
+	outline: none;
+
+input[type=range]::-ms-track
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+	cursor: pointer;
+	width: 100%;
+
+input[type=range]::-webkit-slider-thumb
+	-webkit-appearance: none;
+	border: none;
+	width: 18px;
+	height: 30px;
+	border-radius: 0;
+	background: url(imgs/range-thumb.svg) no-repeat center center;
+	background-size 100% auto
+	cursor: pointer;
+	margin-top: -14px;
+
+input[type=range]::-moz-range-thumb
+	width: 18px;
+	height: 30px;
+	background: url(imgs/range-thumb.svg) no-repeat center center;
+	background-size 100% auto
+	cursor: pointer;
+	border-radius: 0;
+	border: none;
+
+input[type=range]::-ms-thumb
+	border: none;
+	width: 18px;
+	height: 30px;
+	border-radius: 0;
+	background: url(imgs/range-thumb.svg) no-repeat center center;
+	background-size 100% auto
+	cursor: pointer;
+
+input[type=range]::-webkit-slider-runnable-track
+	background: rgba(255,255,255,0.6);
+	border-radius: 0;
+	border: none;
+	cursor: pointer;
+	height: 2px;
+	sombra rgba(0,0,0,0.5) 0px 0px 4px
+	width: 100%;
+
+input[type=range]:focus::-webkit-slider-runnable-track
+	background: rgba(255,255,255,1);
+
+input[type=range]::-moz-range-track
+	background: rgba(255,255,255,0.6);
+	border-radius: 0;
+	border: none;
+	cursor: pointer;
+	height: 2px;
+	sombra rgba(0,0,0,0.5) 0px 0px 4px
+	width: 100%;
+
+input[type=range]::-ms-track
+	width: 100%;
+	height: 2px;
+	cursor: pointer;
+	background: transparent;
+	border-color: transparent;
+	border-width: 0 0;
+	color: transparent;
+
+input[type=range]::-ms-fill-lower
+	background: elColor;
+	border: none;
+	border-radius: 0;
+
+input[type=range]:focus::-ms-fill-lower
+	background: rgba(255,255,255,1);
+
+input[type=range]::-ms-fill-upper
+	background: rgba(0,0,0,0.75);
+	border: none;
+	border-radius: 0;
+
+input[type=range]:focus::-ms-fill-upper
+	background: rgba(255,255,255,1);
+
+.flip-container
+	alineados middle
+	perspective: 1000;
+	&.cambio .flipper
+		-webkit-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+	.flipper
+		-webkit-transition: 0.6s;
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform-origin center
+		transition: 0.6s;
+		transform-style: preserve-3d;
+		transform-origin center
+		position: relative;
+	.back,
+	.front
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+	.back
+		-webkit-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+	.front
+		z-index: 2;
+		-webkit-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+
+.flip-container,
+.front,
+.back
+	width: 1.8rem;
+	height: 1.8rem;
+
+
+
+._oculto
+	border 0
+	clip rect(0 0 0 0)
+	height 1px
+	margin -1px
+	overflow hidden
+	padding 0
+	position absolute
+	width 1px
+	&.focusable:active, &.focusable:focus
+		clip auto
+		height auto
+		margin 0
+		overflow visible
+		position static
+		width auto
+
+
+/* Animaciones */
+
+@-webkit-keyframes pop
+	50%
+		-webkit-transform: scale(1.05);
+		transform: scale(1.05);
+	100%
+		-webkit-transform: scale(1);
+		transform: scale(1);
+
+@keyframes pop
+	50%
+		-webkit-transform: scale(1.05);
+		transform: scale(1.05);
+	100%
+		-webkit-transform: scale(1);
+		transform: scale(1);
+
+@-webkit-keyframes pop_giro
+	50%
+		-webkit-transform: scale(1.05);
+		transform: scale(1.05);
+	100%
+		-webkit-transform: scale(1) rotate(90deg);
+		transform: scale(1) rotate(90deg);
+
+@keyframes pop_giro
+	50%
+		-webkit-transform: scale(1.05);
+		transform: scale(1.05);
+	100%
+		-webkit-transform: scale(1) rotate(90deg);
+		transform: scale(1) rotate(90deg);
